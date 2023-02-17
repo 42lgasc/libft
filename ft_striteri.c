@@ -6,7 +6,7 @@
 /*   By: lgasc <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 12:57:12 by lgasc             #+#    #+#             */
-/*   Updated: 2023/02/09 13:14:19 by lgasc            ###   ########.fr       */
+/*   Updated: 2023/02/10 16:49:51 by lgasc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
  * @param[in,out] string The string on which to iterate.
  * @param[in] function The function to apply to each character.
  */
-void	ft_striteri(char *string, void (*function)(unsigned int, char*))
+void	ft_striteri(char *string, void (*function)(unsigned int, char *))
 {
 	unsigned int	i;
 

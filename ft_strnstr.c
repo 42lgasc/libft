@@ -6,21 +6,24 @@
 /*   By: lgasc <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 13:08:42 by lgasc             #+#    #+#             */
-/*   Updated: 2023/02/04 16:28:05 by lgasc            ###   ########.fr       */
+/*   Updated: 2023/02/12 02:21:45 by lgasc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_size	ft_strlen(const char *string);
-
-char	*ft_strnstr(const char *big, const char *little, t_size length)
+/** @see https://stackoverflow.com/a/5416724
+ * @remark This function aims to replicate the `libc` function `strnstr`.
+ */
+char	*ft_strnstr(const char *big, const char *little, size_t length)
 {
 	unsigned int	i;
 	unsigned int	j;
 
+	if (length == 0)
+		return (NULL);
 	if (little[0] == '\0')
-		return ((char *) big);
+		return ((char *const) big);
 	i = 0;
 	while (i <= ft_strlen(big) - ft_strlen(little)
 		&& i <= length - ft_strlen(little))
@@ -32,10 +35,10 @@ char	*ft_strnstr(const char *big, const char *little, t_size length)
 			{
 				j++;
 				if (little[j] == '\0')
-					return ((char *) &big[i]);
+					return ((char *const) &big[i]);
 			}
 		}
 		i++;
 	}
-	return ((void *) 0);
+	return (NULL);
 }

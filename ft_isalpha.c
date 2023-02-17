@@ -6,11 +6,12 @@
 /*   By: lgasc <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 14:48:14 by lgasc             #+#    #+#             */
-/*   Updated: 2023/02/01 15:08:59 by lgasc            ###   ########.fr       */
+/*   Updated: 2023/02/12 00:32:42 by lgasc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isalpha(unsigned char character)
+/** @remark This function aims to replicate the `libc` function `isalpha`. */
+int	ft_isalpha(int character)
 {
 	return (('A' <= character && character <= 'Z')
 		|| ('a' <= character && character <= 'z'));

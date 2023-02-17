@@ -1,19 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lgasc <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/01 16:18:18 by lgasc             #+#    #+#             */
-/*   Updated: 2023/02/12 00:32:23 by lgasc            ###   ########.fr       */
+/*   Created: 2023/02/15 13:44:41 by lgasc             #+#    #+#             */
+/*   Updated: 2023/02/15 14:02:31 by lgasc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/** @remark This function aims to replicate the `libc` function `isalnum`. */
-int	ft_isalnum(int character)
+/** Iterates the `list` and applies the `function` on the content of each node.
+ * @param list The address to a pointer to a node.
+ * @param function The address of the function used to iterate on the `list`.
+ */
+void	ft_lstiter(t_list *list, void (*function)(void *))
 {
-	return (ft_isalpha(character) || ft_isdigit(character));
+	struct s_list	*node;
+
+	node = list;
+	while (node)
+	{
+		function(node->content);
+		node = node->next;
+	}
 }

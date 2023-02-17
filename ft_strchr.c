@@ -6,9 +6,11 @@
 /*   By: lgasc <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 17:57:21 by lgasc             #+#    #+#             */
-/*   Updated: 2023/02/06 18:41:56 by lgasc            ###   ########.fr       */
+/*   Updated: 2023/02/12 00:40:59 by lgasc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 /** Returns a pointer to the first occurrence of
  * the `character` in the `string`.
@@ -20,8 +22,9 @@
  * 	NULL if the `character` is not found. The terminating null byte is
  * 	considered part of the `string`, so that if `character` is specified as
  * 	'\0', this function returns a pointer to the terminator.
+ * @remark This function aims to replicate the `libc` function `strchr`.
  */
-char	*ft_strchr(const char *string, char character)
+char	*ft_strchr(const char *string, int character)
 {
 	unsigned int	i;
 
@@ -29,10 +32,10 @@ char	*ft_strchr(const char *string, char character)
 	while (string[i])
 	{
 		if (string[i] == character)
-			return ((char *) &string[i]);
+			return ((char *const) &string[i]);
 		i++;
 	}
 	if (string[i] == character)
-		return ((char *) &string[i]);
-	return ((void *) 0);
+		return ((char *const) &string[i]);
+	return (NULL);
 }

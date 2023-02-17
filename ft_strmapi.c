@@ -6,14 +6,11 @@
 /*   By: lgasc <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 12:08:15 by lgasc             #+#    #+#             */
-/*   Updated: 2023/02/09 12:56:16 by lgasc            ###   ########.fr       */
+/*   Updated: 2023/02/10 16:15:02 by lgasc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-t_size	ft_strlen(const char *string);
-void	*ft_calloc(t_size member_amount, t_size member_size);
 
 /** Applies the `function` to each character of the `original` string, and
  * 	passing its index as first argument to create a new string (with

@@ -6,14 +6,11 @@
 /*   By: lgasc <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 17:55:31 by lgasc             #+#    #+#             */
-/*   Updated: 2023/02/06 18:04:19 by lgasc            ###   ########.fr       */
+/*   Updated: 2023/02/12 02:51:58 by lgasc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-t_size	ft_strlen(const char *string);
-void	*ft_calloc(t_size member_amount, t_size member_size);
 
 /** Allocates (with malloc(3)) and returns a substring from `superstring`.
  * The substring begins at index `start` and is of maximum size `length`.
@@ -22,17 +19,18 @@ void	*ft_calloc(t_size member_amount, t_size member_size);
  * @param[in] length The maximum length of the substring.
  * @returns The substring. NULL if the allocation fails.
  * @remarks External function: `malloc`
+ * @see https://stackoverflow.com/a/5416724
  */
-char	*ft_substr(char const *superstring, unsigned int start, t_size length)
+char	*ft_substr(char const *superstring, unsigned int start, size_t length)
 {
 	char			*substring;
 	unsigned int	i;
 
-	if (ft_strlen(superstring) - start < length)
+	if (ft_strlen(superstring) < start + length)
 		substring = ft_calloc(
 				ft_strlen(superstring) + 1 - start, sizeof * substring);
 	else
-		substring = ft_calloc(length, sizeof * substring);
+		substring = ft_calloc(length + 1, sizeof * substring);
 	i = 0;
 	while (i < length && superstring[start + i] != '\0')
 	{

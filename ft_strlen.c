@@ -6,13 +6,14 @@
 /*   By: lgasc <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 16:31:14 by lgasc             #+#    #+#             */
-/*   Updated: 2023/02/03 12:28:19 by lgasc            ###   ########.fr       */
+/*   Updated: 2023/02/12 00:34:04 by lgasc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_size	ft_strlen(const char *string)
+/** @remark This function aims to replicate the `libc` function `strlen`. */
+size_t	ft_strlen(const char *string)
 {
 	unsigned int	length;
 

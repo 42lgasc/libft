@@ -6,12 +6,13 @@
 /*   By: lgasc <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 16:28:25 by lgasc             #+#    #+#             */
-/*   Updated: 2023/02/04 17:09:36 by lgasc            ###   ########.fr       */
+/*   Updated: 2023/02/12 00:43:46 by lgasc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isdigit(unsigned char character);
+#include "libft.h"
 
+/** @remark This function aims to replicate the `libc` function `atoi`. */
 int	ft_atoi(const char *string)
 {
 	unsigned int	i;

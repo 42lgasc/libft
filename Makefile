@@ -6,7 +6,7 @@
 #    By: lgasc <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/09 17:30:49 by lgasc             #+#    #+#              #
-#    Updated: 2023/02/09 17:39:20 by lgasc            ###   ########.fr        #
+#    Updated: 2023/02/15 12:12:49 by lgasc            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,12 +37,6 @@ SOURCES = \
 	ft_strmapi.c ft_striteri.c \
 	ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c
 
-#~~ ~ -  BONUS  - ~ ~~#
-#SOURCES += \
-	ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c \
-	ft_lstadd_back.c ft_lstdelone.c ft_lstclear.c \
-	ft_lstiter.c ft_lstmap.c
-
 OBJECTS = $(SOURCES:.c=.o)
 
 
@@ -52,7 +46,7 @@ all: $(OBJECTS)
 	ar rcs $(NAME) $(OBJECTS)
 
 clean:
-	rm -f $(OBJECTS)
+	rm -f $(OBJECTS) $(BONUS_OBJECTS)
 
 fclean: clean
 	rm -f $(NAME)
@@ -62,3 +56,17 @@ re: fclean all ;
 # The implicit "`.o` from `.c`" rule is used instead.
 #$(OBJECTS): $(SOURCE:OBJECTS:.o=.c)
 #	cc $(FLAGS) -c $(@:.o=.c) -o $@
+
+
+
+#~~ ~ -  BONUS  - ~ ~~#
+BONUS_SOURCES = \
+	ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c \
+	ft_lstadd_back.c ft_lstdelone.c ft_lstclear.c \
+	ft_lstiter.c ft_lstmap.c
+
+BONUS_OBJECTS = $(BONUS_SOURCES:.c=.o)
+
+
+bonus: $(BONUS_OBJECTS)
+	ar rcs $(NAME) $(BONUS_OBJECTS)

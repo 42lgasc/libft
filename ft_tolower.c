@@ -6,11 +6,12 @@
 /*   By: lgasc <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 17:56:55 by lgasc             #+#    #+#             */
-/*   Updated: 2023/02/03 12:26:12 by lgasc            ###   ########.fr       */
+/*   Updated: 2023/02/12 00:40:01 by lgasc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	ft_tolower(char character)
+/** @remark This function aims to replicate the `libc` function `tolower`. */
+int	ft_tolower(int character)
 {
 	if ('A' <= character && character <= 'Z')
 		return (character + ('a' - 'A'));

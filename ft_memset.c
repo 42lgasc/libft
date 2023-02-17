@@ -6,18 +6,19 @@
 /*   By: lgasc <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 16:37:56 by lgasc             #+#    #+#             */
-/*   Updated: 2023/02/03 12:29:11 by lgasc            ###   ########.fr       */
+/*   Updated: 2023/02/12 00:37:06 by lgasc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memset(void *s, int c, t_size n)
+/** @remark This function aims to replicate the `libc` function `memset`. */
+void	*ft_memset(void *s, int c, size_t n)
 {
 	unsigned int	i;
 
 	i = 0;
 	while (i < n)
-		((int *) s)[i++] = c;
+		((char *const) s)[i++] = c;
 	return (s);
 }

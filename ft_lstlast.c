@@ -1,19 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lgasc <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/01 16:18:18 by lgasc             #+#    #+#             */
-/*   Updated: 2023/02/12 00:32:23 by lgasc            ###   ########.fr       */
+/*   Created: 2023/02/14 15:52:21 by lgasc             #+#    #+#             */
+/*   Updated: 2023/02/16 19:00:06 by lgasc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/** @remark This function aims to replicate the `libc` function `isalnum`. */
-int	ft_isalnum(int character)
+/** Counts the number of nodes in a list.
+ * @param list The beginning of the list.
+ * @return Last node of the list.
+ */
+t_list	*ft_lstlast(t_list *list)
 {
-	return (ft_isalpha(character) || ft_isdigit(character));
+	struct s_list	*link;
+
+	if (! list)
+		return (NULL);
+	link = list;
+	while (link->next)
+		link = link->next;
+	return (link);
 }

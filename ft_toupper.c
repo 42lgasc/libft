@@ -6,11 +6,12 @@
 /*   By: lgasc <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 17:51:52 by lgasc             #+#    #+#             */
-/*   Updated: 2023/02/03 12:16:07 by lgasc            ###   ########.fr       */
+/*   Updated: 2023/02/12 00:40:17 by lgasc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	ft_toupper(char character)
+/** @remark This function aims to replicate the `libc` function `toupper`. */
+int	ft_toupper(int character)
 {
 	if ('a' <= character && character <= 'z')
 		return (character - ('a' - 'A'));

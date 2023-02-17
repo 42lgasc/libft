@@ -6,14 +6,12 @@
 /*   By: lgasc <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 19:40:37 by lgasc             #+#    #+#             */
-/*   Updated: 2023/02/08 18:17:09 by lgasc            ###   ########.fr       */
+/*   Updated: 2023/02/17 13:20:42 by lgasc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "libft.h"
-
-void				*ft_calloc(t_size member_amount, t_size member_size);
 
 static unsigned int	count_subtrings(
 						const char *const superstring,
@@ -28,12 +26,15 @@ static void			set_substrings(
 						char *const *const array);
 
 /** Allocates (with malloc(3)) and returns an array of strings obtained by
- * splitting the `whole` using a `delimiter` character.
+ * 	splitting the `whole` using a `delimiter` character.
  * The array must end with a NULL pointer.
+ * 
  * @param[in] whole The string to be split.
  * @param[in] delimiter The delimiter character.
+ * 
  * @returns The array of new strings resulting from the split.
  * 	NULL if the allocation fails.
+ * 
  * @remarks External functions: `malloc`, `free`
  */
 char	**ft_split(char const *whole, char delimiter)
@@ -42,10 +43,12 @@ char	**ft_split(char const *whole, char delimiter)
 	unsigned int	error;
 	unsigned int	i;
 
+	if (! whole)
+		return (NULL);
 	split = ft_calloc(count_subtrings(whole, delimiter) + 1, sizeof * split);
 	if (! split)
-		return ((void *) 0);
-	split[count_subtrings(whole, delimiter)] = (void *) 0;
+		return (NULL);
+	split[count_subtrings(whole, delimiter)] = NULL;
 	error = allocate_substrings(whole, delimiter, split);
 	if (error)
 	{
@@ -56,7 +59,7 @@ char	**ft_split(char const *whole, char delimiter)
 			i++;
 		}
 		free(split);
-		return ((void *) 0);
+		return (NULL);
 	}
 	set_substrings(whole, delimiter, split);
 	return (split);
@@ -96,7 +99,7 @@ static unsigned int	allocate_substrings(
 	unsigned int	sub_length;
 
 	i = 0;
-	is_at_a_delimiter = 0;
+	is_at_a_delimiter = 1;
 	sub_index = 0;
 	while (whole[i])
 	{
@@ -107,7 +110,7 @@ static unsigned int	allocate_substrings(
 			sub_length = 0;
 			while (whole[i + sub_length] && whole[i + sub_length] != delimiter)
 				sub_length++;
-			array[sub_index] = ft_calloc(sub_length, sizeof * *array);
+			array[sub_index] = ft_calloc(sub_length + 1, sizeof * *array);
 			if (! array[sub_index++])
 				return (1);
 			is_at_a_delimiter = 0;
@@ -132,7 +135,7 @@ void	set_substrings(
 	{
 		if (in_substring && whole[i] == delimiter)
 			in_substring = 0;
-		else if (! in_substring && whole[i] != delimiter)
+		else if ((! in_substring) && whole[i] != delimiter)
 		{
 			j = 0;
 			while (whole[i + j] && whole[i + j] != delimiter)
@@ -140,8 +143,8 @@ void	set_substrings(
 				split[substring_index][j] = whole[i + j];
 				j++;
 			}
-			split[substring_index][j] = '\0';
-			j = 0xBAD - in_substring++ - substring_index++;
+			split[substring_index++][j] = '\0';
+			in_substring++;
 		}
 		i++;
 	}

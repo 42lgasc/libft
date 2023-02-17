@@ -6,13 +6,11 @@
 /*   By: lgasc <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 13:55:44 by lgasc             #+#    #+#             */
-/*   Updated: 2023/02/09 14:34:24 by lgasc            ###   ########.fr       */
+/*   Updated: 2023/02/10 18:04:46 by lgasc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-void	ft_putstr_fd(const char *const string, const int file_descriptor);
+#include "libft.h"
 
 /** Outputs the `string` to the given `file_descriptor` followed by a newline.
  * @param[in] string The string to output.
