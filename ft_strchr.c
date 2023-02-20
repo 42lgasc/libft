@@ -6,7 +6,7 @@
 /*   By: lgasc <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 17:57:21 by lgasc             #+#    #+#             */
-/*   Updated: 2023/02/12 00:40:59 by lgasc            ###   ########.fr       */
+/*   Updated: 2023/02/17 17:45:12 by lgasc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,11 @@ char	*ft_strchr(const char *string, int character)
 	i = 0;
 	while (string[i])
 	{
-		if (string[i] == character)
-			return ((char *const) &string[i]);
+		if ((unsigned char) string[i] == (unsigned char) character)
+			return ((char *) &string[i]);
 		i++;
 	}
-	if (string[i] == character)
-		return ((char *const) &string[i]);
+	if ((unsigned char) string[i] == (unsigned char) character)
+		return ((char *) &string[i]);
 	return (NULL);
 }

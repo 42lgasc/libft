@@ -6,7 +6,7 @@
 /*   By: lgasc <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 18:07:56 by lgasc             #+#    #+#             */
-/*   Updated: 2023/02/10 16:51:54 by lgasc            ###   ########.fr       */
+/*   Updated: 2023/02/20 15:12:18 by lgasc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ char	*ft_strtrim(char const *scruffy, char const *blade)
 	i = 0;
 	while (ft_strchr(blade, scruffy[i]) && i <= ft_strlen(scruffy))
 		i++;
-	j = ft_strlen(scruffy) - 1;
+	j = ft_strlen(scruffy);
 	while (i < j && ft_strchr(blade, scruffy[j]))
 		j--;
 	trim = ft_calloc(2 + j - i, sizeof * trim);
