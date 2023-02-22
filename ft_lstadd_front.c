@@ -6,7 +6,7 @@
 /*   By: lgasc <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 14:08:00 by lgasc             #+#    #+#             */
-/*   Updated: 2023/02/14 14:27:46 by lgasc            ###   ########.fr       */
+/*   Updated: 2023/02/21 17:57:33 by lgasc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@
  */
 void	ft_lstadd_front(t_list **list, t_list *new)
 {
+	if (! list)
+		return ;
 	new->next = *list;
 	*list = new;
 }

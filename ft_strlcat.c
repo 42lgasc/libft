@@ -6,7 +6,7 @@
 /*   By: lgasc <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 16:09:25 by lgasc             #+#    #+#             */
-/*   Updated: 2023/02/12 01:37:08 by lgasc            ###   ########.fr       */
+/*   Updated: 2023/02/21 18:33:36 by lgasc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ size_t	ft_strlcat(char *destination, const char *source, size_t size)
 {
 	size_t	old_destination_size;
 
+	if ((! source) || (! source))
+		return (0);
 	if (size <= ft_strlen(destination))
 		return (size + ft_strlen(source));
 	old_destination_size = ft_strlen(destination);

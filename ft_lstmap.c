@@ -6,23 +6,17 @@
 /*   By: lgasc <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 14:59:30 by lgasc             #+#    #+#             */
-/*   Updated: 2023/02/17 12:17:07 by lgasc            ###   ########.fr       */
+/*   Updated: 2023/02/21 19:07:05 by lgasc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static void	noop(void *x)
-{
-	if (x)
-		return ;
-	return ;
-}
 static t_list	*new_list_skeleton(const size_t size);
 static void		hydrate_list(
-				const t_list *const source,
-				void *(*const mapper)(void *),
-				t_list *const destination);
+					const t_list *const source,
+					void *(*const mapper)(void *),
+					t_list *const destination);
 
 /** Iterates the `original` list and applies the `function` on the content of
  * 	each node, and creates a new `map` list resulting of the successive
@@ -59,6 +53,8 @@ t_list	*ft_lstmap(
 	return (map);
 }
 
+static void		noop(void *x);
+
 static t_list	*new_list_skeleton(const size_t size)
 {
 	unsigned int	i;
@@ -82,6 +78,13 @@ static t_list	*new_list_skeleton(const size_t size)
 	return (skeleton);
 }
 
+static void	noop(void *x)
+{
+	if (x)
+		return ;
+	return ;
+}
+
 static void	hydrate_list(
 				const t_list *const source,
 				void *(*const mapper)(void *),
@@ -90,6 +93,8 @@ static void	hydrate_list(
 	struct s_list		*destination_link;
 	const struct s_list	*source_link;
 
+	if ((! source) || (! mapper) || (! destination))
+		return ;
 	destination_link = destination;
 	source_link = source;
 	while (destination_link)

@@ -6,7 +6,7 @@
 /*   By: lgasc <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 16:35:49 by lgasc             #+#    #+#             */
-/*   Updated: 2023/02/14 17:10:12 by lgasc            ###   ########.fr       */
+/*   Updated: 2023/02/21 17:58:11 by lgasc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ void	ft_lstdelone(t_list *node, void (*deleter)(void *))
 {
 	struct s_list	*next_node;
 
+	if (! node)
+		return ;
 	deleter(node->content);
 	next_node = node->next;
 	free(node);

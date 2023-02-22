@@ -6,7 +6,7 @@
 /*   By: lgasc <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 13:41:59 by lgasc             #+#    #+#             */
-/*   Updated: 2023/02/10 17:10:06 by lgasc            ###   ########.fr       */
+/*   Updated: 2023/02/21 18:22:20 by lgasc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,5 +19,7 @@
  */
 void	ft_putstr_fd(char *string, int file_descriptor)
 {
+	if (! string)
+		return ;
 	write(file_descriptor, string, ft_strlen(string));
 }

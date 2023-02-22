@@ -6,7 +6,7 @@
 /*   By: lgasc <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 13:08:42 by lgasc             #+#    #+#             */
-/*   Updated: 2023/02/20 15:11:52 by lgasc            ###   ########.fr       */
+/*   Updated: 2023/02/22 14:35:00 by lgasc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ char	*ft_strnstr(const char *big, const char *little, size_t length)
 	unsigned int	i;
 	unsigned int	j;
 
-	if (little[0] == '\0')
+	if (little && little[0] == '\0')
 		return ((char *const) big);
-	if (length == 0)
+	if ((! big) || (! little) || length == 0)
 		return (NULL);
 	i = 0;
 	while (i <= ft_strlen(big) - ft_strlen(little)

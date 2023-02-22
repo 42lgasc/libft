@@ -6,7 +6,7 @@
 /*   By: lgasc <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 17:55:31 by lgasc             #+#    #+#             */
-/*   Updated: 2023/02/12 02:51:58 by lgasc            ###   ########.fr       */
+/*   Updated: 2023/02/22 14:27:05 by lgasc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,15 @@ char	*ft_substr(char const *superstring, unsigned int start, size_t length)
 	char			*substring;
 	unsigned int	i;
 
+	if ((! superstring) || start > ft_strlen(superstring))
+		return (ft_strdup(""));
 	if (ft_strlen(superstring) < start + length)
 		substring = ft_calloc(
 				ft_strlen(superstring) + 1 - start, sizeof * substring);
 	else
 		substring = ft_calloc(length + 1, sizeof * substring);
+	if (! substring)
+		return (NULL);
 	i = 0;
 	while (i < length && superstring[start + i] != '\0')
 	{

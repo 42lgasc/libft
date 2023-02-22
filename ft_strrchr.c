@@ -6,7 +6,7 @@
 /*   By: lgasc <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 18:17:29 by lgasc             #+#    #+#             */
-/*   Updated: 2023/02/17 17:46:17 by lgasc            ###   ########.fr       */
+/*   Updated: 2023/02/21 18:52:15 by lgasc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ char	*ft_strrchr(const char *string, int character)
 	unsigned int	i;
 	const char		*match;
 
+	if (! string)
+		return (NULL);
 	i = 0;
 	match = NULL;
 	while (string[i])

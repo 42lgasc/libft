@@ -6,13 +6,16 @@
 /*   By: lgasc <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 12:57:22 by lgasc             #+#    #+#             */
-/*   Updated: 2023/02/12 00:35:24 by lgasc            ###   ########.fr       */
+/*   Updated: 2023/02/21 18:14:47 by lgasc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/** @remark This function aims to replicate the `libc` function `memcmp`. */
+/** @remark This function aims to replicate the `libc` function `memcmp`.
+ * @remark The behavior of this function is, when called with
+ * 	at least one `NULL` pointer, undefined!
+ */
 int	ft_memcmp(const void *string1, const void *string2, size_t n)
 {
 	unsigned int	i;

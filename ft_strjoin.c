@@ -6,7 +6,7 @@
 /*   By: lgasc <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 16:53:31 by lgasc             #+#    #+#             */
-/*   Updated: 2023/02/10 16:50:07 by lgasc            ###   ########.fr       */
+/*   Updated: 2023/02/21 18:31:57 by lgasc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ char	*ft_strjoin(char const *string1, char const *string2)
 	unsigned int	i;
 	unsigned int	j;
 
+	if ((! string1) || (! string2))
+		return (NULL);
 	join = ft_calloc(
 			ft_strlen(string1) + ft_strlen(string2) + 1, sizeof * join);
 	if (join == NULL)
