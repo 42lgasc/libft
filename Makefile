@@ -6,9 +6,13 @@
 #    By: lgasc <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/09 17:30:49 by lgasc             #+#    #+#              #
-#    Updated: 2023/02/15 12:12:49 by lgasc            ###   ########.fr        #
+#    Updated: 2023/02/23 12:33:21 by lgasc            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
+
+
+
+# #### ### ## #  === == =  ~~ ~  - VARIABLES= -  ~ ~~  = == ===  # ## ### #### #
 
 NAME = libft.a
 
@@ -40,6 +44,9 @@ SOURCES = \
 OBJECTS = $(SOURCES:.c=.o)
 
 
+
+# #### ### ## #  === == =  ~~ ~  -  recipes:  -  ~ ~~  = == ===  # ## ### #### #
+
 $(NAME): all ;
 
 all: $(OBJECTS)
@@ -59,7 +66,8 @@ re: fclean all ;
 
 
 
-#~~ ~ -  BONUS  - ~ ~~#
+# #### ### ## #  === == =  ~~ ~  -   Bonus!   -  ~ ~~  = == ===  # ## ### #### #
+
 BONUS_SOURCES = \
 	ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c \
 	ft_lstadd_back.c ft_lstdelone.c ft_lstclear.c \
@@ -70,3 +78,9 @@ BONUS_OBJECTS = $(BONUS_SOURCES:.c=.o)
 
 bonus: $(BONUS_OBJECTS)
 	ar rcs $(NAME) $(BONUS_OBJECTS)
+
+
+
+# #### ### ## #  === == =  ~~ ~  -  .SPECIAL  -  ~ ~~  = == ===  # ## ### #### #
+
+.PHONY: all clean fclean re bonus
