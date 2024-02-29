@@ -6,7 +6,7 @@
 /*   By: lgasc <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 19:40:37 by lgasc             #+#    #+#             */
-/*   Updated: 2023/02/17 13:20:42 by lgasc            ###   ########.fr       */
+/*   Updated: 2023/10/24 12:15:49 by lgasc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,18 +25,20 @@ static void			set_substrings(
 						const char delimiter,
 						char *const *const array);
 
-/** Allocates (with malloc(3)) and returns an array of strings obtained by
- * 	splitting the `whole` using a `delimiter` character.
- * The array must end with a NULL pointer.
- * 
- * @param[in] whole The string to be split.
- * @param[in] delimiter The delimiter character.
- * 
- * @returns The array of new strings resulting from the split.
- * 	NULL if the allocation fails.
- * 
- * @remarks External functions: `malloc`, `free`
- */
+///Allocates (with `malloc`(3)) and returns an array of strings obtained by
+///	splitting the `whole` using a `delimiter` character.
+///The array must end with a `NULL` pointer.
+///
+///Leading and trailing delimiters are skup;
+///There will be no empty string (`""`) in the returned array.
+///
+///@param[in] whole The string to be split.
+///@param[in] delimiter The delimiter character.
+///
+///@returns The array of new strings resulting from the split.
+///	`NULL` if the allocation fails.
+///
+///@remarks External functions: `malloc`, `free`
 char	**ft_split(char const *whole, char delimiter)
 {
 	char			**split;

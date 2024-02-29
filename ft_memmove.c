@@ -6,7 +6,7 @@
 /*   By: lgasc <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 17:17:13 by lgasc             #+#    #+#             */
-/*   Updated: 2023/02/21 18:16:59 by lgasc            ###   ########.fr       */
+/*   Updated: 2023/03/02 17:29:26 by lgasc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,10 @@ void	*ft_memmove(void *destination, const void *source, size_t n)
 	{
 		if (source < destination)
 			((char *const) destination)[n - i - 1]
-				= ((char *const) source)[n - i - 1];
+				= ((const char *const) source)[n - i - 1];
 		else
 			((char *const) destination)[i]
-				= ((char *const) source)[i];
+				= ((const char *const) source)[i];
 		i++;
 	}
 	return (destination);

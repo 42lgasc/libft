@@ -1,24 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   minlst.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lgasc <lgasc@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/01 16:44:15 by lgasc             #+#    #+#             */
-/*   Updated: 2024/02/27 11:04:41 by lgasc            ###   ########.fr       */
+/*   Created: 2024/02/27 21:15:21 by lgasc             #+#    #+#             */
+/*   Updated: 2024/02/27 22:04:55 by lgasc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stddef.h>
+#include "bonus.h"
 
-///@remark This function aims to replicate the `libc` function `bzero`.
-///@remark Compiler optimizations may remove the erase operation
-///	if the compiler deduces that the operation is "unnecessary".
-///	See the page of the `man` `BZERO``(3)`
-void	ft_bzero(void *start, size_t size)
+///TODO: Remove calls to `ft_zlstget`
+__attribute__ ((nonnull)) __attribute__ ((warn_unused_result))
+size_t	ft_minzlst_offset(const t_zlist list)
 {
-	if (! start)
-		return ;
-	ft_memset(start, '\0', size);
+	size_t	i;
+	size_t	min;
+
+	i = 1;
+	min = 0;
+	while (i < ft_zlstsize(list))
+		if (ft_zlstget(list, i++)->inner < ft_zlstget(list, min)->inner)
+			min = i - 1;
+	return (min);
 }

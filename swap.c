@@ -1,24 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lgasc <lgasc@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/01 16:44:15 by lgasc             #+#    #+#             */
-/*   Updated: 2024/02/27 11:04:41 by lgasc            ###   ########.fr       */
+/*   Created: 2024/02/21 16:17:25 by lgasc             #+#    #+#             */
+/*   Updated: 2024/02/27 11:22:59 by lgasc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+//!@see `ft_lstswap.c`
 
-///@remark This function aims to replicate the `libc` function `bzero`.
-///@remark Compiler optimizations may remove the erase operation
-///	if the compiler deduces that the operation is "unnecessary".
-///	See the page of the `man` `BZERO``(3)`
-void	ft_bzero(void *start, size_t size)
+__attribute__ ((nonnull))
+void	ft_ipswap(const int **const a, const int **const b)
 {
-	if (! start)
-		return ;
-	ft_memset(start, '\0', size);
+	const int *const	temp = *a;
+
+	*a = *b;
+	*b = temp;
 }

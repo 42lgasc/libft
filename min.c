@@ -1,25 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
+/*   min.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lgasc <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/14 14:08:00 by lgasc             #+#    #+#             */
-/*   Updated: 2024/02/09 16:33:00 by lgasc            ###   ########.fr       */
+/*   Created: 2024/02/22 19:32:49 by lgasc             #+#    #+#             */
+/*   Updated: 2024/02/22 19:40:26 by lgasc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stddef.h>
 
-///Add a `node` at the beginning of the `list`.
-
-///@param list The address of the head pointer of the list.
-///@param node The address of a node to be added to the list.
-void	ft_lstadd_front(t_list *const list, t_node *const node)
+__attribute__ ((warn_unused_result))
+size_t	ft_zmin(const size_t a, const size_t b)
 {
-	if (0)
-		return ;
-	node->next = *list;
-	*list = node;
+	if (a < b)
+		return (a);
+	return (b);
 }

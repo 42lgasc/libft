@@ -6,22 +6,21 @@
 /*   By: lgasc <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 17:55:31 by lgasc             #+#    #+#             */
-/*   Updated: 2023/02/22 14:27:05 by lgasc            ###   ########.fr       */
+/*   Updated: 2024/01/10 18:37:09 by lgasc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/** Allocates (with malloc(3)) and returns a substring from `superstring`.
- * The substring begins at index `start` and is of maximum size `length`.
- * @param[in] superstring The string from which to create the substring.
- * @param[in] start The start index of the substring in `superstring`.
- * @param[in] length The maximum length of the substring.
- * @returns The substring. NULL if the allocation fails.
- * @remarks External function: `malloc`
- * @see https://stackoverflow.com/a/5416724
- */
-char	*ft_substr(char const *superstring, unsigned int start, size_t length)
+///Allocates (with malloc(3)) and returns a substring from `superstring`.
+///The substring begins at index `start` and is of maximum size `length`.
+///@param[in] superstring The string from which to create the substring.
+///@param[in] start The start index of the substring in `superstring`.
+///@param[in] length The maximum length of the substring.
+///@returns The substring. NULL if the allocation fails.
+///@remarks External function: `malloc`
+///@see https://stackoverflow.com/a/5416724
+char	*ft_substr(char const *superstring, size_t start, size_t length)
 {
 	char			*substring;
 	unsigned int	i;

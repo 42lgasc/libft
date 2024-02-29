@@ -3,26 +3,42 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lgasc <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: lgasc <lgasc@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 16:07:05 by lgasc             #+#    #+#             */
-/*   Updated: 2023/02/16 19:11:54 by lgasc            ###   ########.fr       */
+/*   Updated: 2024/02/27 11:17:20 by lgasc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "bonus.h"
 
-/** Adds the `new` node at the end of the `list`.
- * 
- * @param list The address of a pointer to the first link of a list.
- * @param new The address of the node to be added to the `list`.
- */
-void	ft_lstadd_back(t_list **list, t_list *new)
+///Add a `node` at the end of the `list`
+
+///@param list The address of the head pointer of the list
+///@param node The address of a node to be added
+
+///@remark The address of the head pointer is assumed to be nonnull.
+void	ft_lstadd_back(t_list *const list, t_node *const node)
 {
-	if (! list)
-		return ;
-	if (! *list)
-		*list = new;
+	if (*list == NULL)
+		*list = node;
 	else
-		ft_lstlast(*list)->next = new;
+		ft_lstlast(*list)->next = node;
+}
+
+void	ft_ilstadd_back(t_ilist *const list, t_inode *const node)
+{
+	if (*list == NULL)
+		*list = node;
+	else
+		ft_ilstlast(*list)->next = node;
+}
+
+__attribute__ ((nonnull))
+void	ft_zlstadd_back(t_zlist *const list, t_znode *const node)
+{
+	if (*list == NULL)
+		*list = node;
+	else
+		ft_zlstlast(*list)->next = node;
 }

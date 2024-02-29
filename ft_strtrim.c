@@ -6,33 +6,32 @@
 /*   By: lgasc <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 18:07:56 by lgasc             #+#    #+#             */
-/*   Updated: 2023/02/22 17:23:08 by lgasc            ###   ########.fr       */
+/*   Updated: 2023/11/17 17:53:01 by lgasc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 static void	locate_trim(const char *const scruffy, const char *const blade,
-				unsigned int *const start, unsigned int *const end);
+				unsigned int *const start, size_t *const end);
 
 static void	hydrate_trim(const char *const scruffy,
-				unsigned int start, unsigned int end, char *const trim);
+				unsigned int start, size_t end, char *const trim);
 
-/** Allocates (with malloc(3)) and returns a copy of `scruffy` with the
- * 	characters specified in `blade` removed from the beginning and the end of
- * 	the string.
- * 
- * @param[in] scruffy The string to be trimmed.
- * @param[in] blade The reference set of characters to trim.
- * 
- * @returns The trimmed string. NULL if the allocation fails.
- * 
- * @remarks External function: `malloc`
- */
+///# Allocates (with `malloc`) and returns a copy of
+///`scruffy` with the characters specified in `blade`
+///removed from the beginning and the end of the string.
+///## Params
+///@param[in] `scruffy` The string to be trimmed.
+///@param[in] `blade` The reference set of characters to trim.
+///## Return
+///@returns The trimmed string. NULL if the allocation fails.
+///## Note
+///@remarks External function: `malloc`
 char	*ft_strtrim(char const *scruffy, char const *blade)
 {
 	unsigned int	start;
-	unsigned int	end;
+	size_t			end;
 	char			*trim;
 
 	if (! scruffy)
@@ -54,7 +53,7 @@ char	*ft_strtrim(char const *scruffy, char const *blade)
  * @param[out] end
  */
 static void	locate_trim(const char *const scruffy, const char *const blade,
-				unsigned int *const start, unsigned int *const end)
+				unsigned int *const start, size_t *const end)
 {
 	*start = 0;
 	while (ft_strchr(blade, scruffy[*start]) && *start <= ft_strlen(scruffy))
@@ -71,7 +70,7 @@ static void	locate_trim(const char *const scruffy, const char *const blade,
  * @param[out] trim
  */
 static void	hydrate_trim(const char *const scruffy, const unsigned int start,
-				const unsigned int end, char *const trim)
+				size_t end, char *const trim)
 {
 	unsigned int	i;
 

@@ -3,40 +3,66 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lgasc <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: lgasc <lgasc@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 12:28:07 by lgasc             #+#    #+#             */
-/*   Updated: 2023/02/17 11:39:25 by lgasc            ###   ########.fr       */
+/*   Updated: 2024/02/27 11:17:46 by lgasc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/** Deletes and frees the given node and every successor of that node, using
- * 	the `deleter` function and free(3).
- * 	Finally, the pointer to the `list` must be set to `NULL`.
- * 
- * @param node The address of a pointer to a node
- * 
- * @param deleter The address of the function
- * 	used to delete the content of the `node`
- * 
- * @remark External function: `free`.
- */
-void	ft_lstclear(t_list **list, void (*deleter)(void *))
+///> Delete and free the given node and every successor of
+///>  that node, using the `deleter` function and `free``(3)`.
+///> Finally, the head pointer of the `list` must be set to `NULL`.
+///@param list The address of the head pointer of the list
+///@param deleter The address of a function which frees the `node.datum`
+///@remark External function: `free`
+void	ft_lstclear(t_list *const list, void deleter(const void *const))
 {
-	t_list	*link;
-	t_list	*next_link;
+	t_node	*node;
+	t_node	*next_node;
 
-	if ((! list) || (! deleter))
-		return ;
-	link = *list;
-	while (link)
+	node = *list;
+	while (node != NULL)
 	{
-		deleter(link->content);
-		next_link = link->next;
-		free(link);
-		link = next_link;
+		deleter(node->datum);
+		next_node = node->next;
+		free(node);
+		node = next_node;
+	}
+	*list = NULL;
+}
+
+void	ft_ilstclear(t_ilist *const list)
+{
+	t_inode	*node;
+	t_inode	*next_node;
+
+	node = *list;
+	while (node != NULL)
+	{
+		node->datum = 0xDEADBEEF;
+		next_node = node->next;
+		free(node);
+		node = next_node;
+	}
+	*list = NULL;
+}
+
+__attribute__ ((nonnull))
+void	ft_zlstclear(t_zlist *const list)
+{
+	t_znode	*node;
+	t_znode	*next_node;
+
+	node = *list;
+	while (node != NULL)
+	{
+		node->inner = 0xDEADBEEF;
+		next_node = node->next;
+		free(node);
+		node = next_node;
 	}
 	*list = NULL;
 }

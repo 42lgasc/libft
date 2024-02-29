@@ -1,25 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
+/*   ft_arrint.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lgasc <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/14 14:08:00 by lgasc             #+#    #+#             */
-/*   Updated: 2024/02/09 16:33:00 by lgasc            ###   ########.fr       */
+/*   Created: 2024/02/22 10:00:57 by lgasc             #+#    #+#             */
+/*   Updated: 2024/02/22 10:19:12 by lgasc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "stddef.h"
 
-///Add a `node` at the beginning of the `list`.
+#include "types.h"
 
-///@param list The address of the head pointer of the list.
-///@param node The address of a node to be added to the list.
-void	ft_lstadd_front(t_list *const list, t_node *const node)
+__attribute__ ((nonnull)) __attribute__ ((warn_unused_result))
+const int	*ft_arrint(const t_int_array array, const int integer)
 {
-	if (0)
-		return ;
-	node->next = *list;
-	*list = node;
+	size_t	i;
+
+	i = 0;
+	while (i < array->length)
+		if (array->ints[i++] == integer)
+			return (&array->ints[--i]);
+	return (NULL);
 }

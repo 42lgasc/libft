@@ -6,19 +6,18 @@
 /*   By: lgasc <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 16:53:31 by lgasc             #+#    #+#             */
-/*   Updated: 2023/02/21 18:31:57 by lgasc            ###   ########.fr       */
+/*   Updated: 2023/10/26 19:11:31 by lgasc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/** Allocates (with malloc(3)) and returns a new string,
- * which is the result of the concatenation of `string1` and `string2`.
- * @param[in] string1 The prefix string.
- * @param[in] string2 The suffix string.
- * @returns The new string. NULL if the allocation fails.
- * @remarks External function: `malloc`
- */
+///Allocates (with malloc(3)) and returns a new string, which
+///is the result of the concatenation of `string1` and `string2`.
+///@param[in] string1 The prefix string.
+///@param[in] string2 The suffix string.
+///@returns The new string. NULL if the allocation fails.
+///@remarks External function: `malloc`
 char	*ft_strjoin(char const *string1, char const *string2)
 {
 	char			*join;
@@ -45,4 +44,11 @@ char	*ft_strjoin(char const *string1, char const *string2)
 	}
 	join[i + j] = '\0';
 	return (join);
+}
+
+////////
+
+char	*ft_concatenate(const char *const start, const char *const end)
+{
+	return (ft_strjoin(start, end));
 }
