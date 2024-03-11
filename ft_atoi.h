@@ -6,7 +6,7 @@
 /*   By: lgasc <lgasc@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 17:46:44 by lgasc             #+#    #+#             */
-/*   Updated: 2024/02/28 14:57:55 by lgasc            ###   ########.fr       */
+/*   Updated: 2024/03/11 20:27:47 by lgasc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@
 enum e_atoi_code
 {
 	Atoi_Ok,
-	NullString,
-	NonNumeric,
-	BeyondLimits
+	Atoi_NullString,
+	Atoi_NonNumeric,
+	Atoi_BeyondLimits
 };
 //# define E_ATOI_ERROR_LAST BeyondLimits
 //# define ATOI_CODE (const char *const []) \/

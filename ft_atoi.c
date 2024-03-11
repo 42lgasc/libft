@@ -6,7 +6,7 @@
 /*   By: lgasc <lgasc@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 16:28:25 by lgasc             #+#    #+#             */
-/*   Updated: 2024/02/28 19:38:42 by lgasc            ###   ########.fr       */
+/*   Updated: 2024/03/11 20:29:43 by lgasc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,11 +68,11 @@ t_atoi_result	ft_try_atoi(const char string[const])
 	int					integer;
 
 	if (string == NULL)
-		return ((t_atoi_result){.code = NullString});
+		return ((t_atoi_result){.code = Atoi_NullString});
 	i = skip.index;
 	sign = skip.sign;
 	if (! ft_isdigit(string[i]))
-		return ((t_atoi_result){.code = NonNumeric});
+		return ((t_atoi_result){.code = Atoi_NonNumeric});
 	integer = 0;
 	while (1)
 	{
@@ -81,7 +81,7 @@ t_atoi_result	ft_try_atoi(const char string[const])
 			return ((t_atoi_result){.code = Atoi_Ok, .ok = integer});
 		if ((sign > 0 && integer > (INT_MAX - string[i] + '0') / 10)
 			|| (sign < 0 && integer < (INT_MIN + string[i] - '0') / 10))
-			return ((t_atoi_result){.code = BeyondLimits});
+			return ((t_atoi_result){.code = Atoi_BeyondLimits});
 	}
 }
 

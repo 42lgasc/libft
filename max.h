@@ -6,7 +6,7 @@
 /*   By: lgasc <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 18:40:07 by lgasc             #+#    #+#             */
-/*   Updated: 2024/02/22 20:10:57 by lgasc            ###   ########.fr       */
+/*   Updated: 2024/03/11 20:28:19 by lgasc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@
 enum e_max_code
 {
 	Max_Ok,
-	NullPointer,
-	NoElement
+	Max_NullPointer,
+	Max_NoElement
 };
 
 // Indeed, `clang` seems to support no attribute...

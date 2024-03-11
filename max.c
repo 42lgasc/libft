@@ -6,7 +6,7 @@
 /*   By: lgasc <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 17:14:34 by lgasc             #+#    #+#             */
-/*   Updated: 2024/02/22 20:12:42 by lgasc            ###   ########.fr       */
+/*   Updated: 2024/03/11 20:30:27 by lgasc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ t_max_result	ft_try_zmaxo(const size_t array[const], const size_t length)
 	size_t	maximum_offset;
 
 	if (length == 0)
-		return ((t_max_result){.code = NoElement});
+		return ((t_max_result){.code = Max_NoElement});
 	i = 0;
 	maximum_offset = 0;
 	while (++i < length)

@@ -6,7 +6,7 @@
 /*   By: lgasc <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 14:39:33 by lgasc             #+#    #+#             */
-/*   Updated: 2024/02/14 17:47:21 by lgasc            ###   ########.fr       */
+/*   Updated: 2024/03/11 20:33:16 by lgasc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,14 @@
 
 enum e_result_type
 {
-	Ok = 0,
-	Error = 1
+	Result_Ok = 0,
+	Result_Error = 1
 };
 
 enum e_option_type
 {
-	None,
-	Some
+	Option_None,
+	Option_Some
 };
 
 #endif
