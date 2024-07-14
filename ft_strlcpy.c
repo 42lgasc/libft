@@ -6,16 +6,17 @@
 /*   By: lgasc <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 13:24:41 by lgasc             #+#    #+#             */
-/*   Updated: 2023/02/21 18:35:30 by lgasc            ###   ########.fr       */
+/*   Updated: 2024/07/15 00:45:45 by lgasc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/** @remark This function aims to replicate the `libc` function `strlcpy`. */
-size_t	ft_strlcpy(char *destination, const char *source, size_t size)
+///@remark	This function aims to replicate the `libc` function `strlcpy`.
+size_t	ft_strlcpy(
+	char *const destination, const char *const source, size_t size)
 {
-	if ((! destination) || (! source))
+	if (! destination || ! source)
 		return (0);
 	if (ft_strlen(source) + 1 < size)
 		ft_memmove(destination, source, ft_strlen(source) + 1);

@@ -6,43 +6,39 @@
 /*   By: lgasc <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 16:53:31 by lgasc             #+#    #+#             */
-/*   Updated: 2023/02/21 18:31:57 by lgasc            ###   ########.fr       */
+/*   Updated: 2024/07/15 00:39:44 by lgasc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/** Allocates (with malloc(3)) and returns a new string,
- * which is the result of the concatenation of `string1` and `string2`.
- * @param[in] string1 The prefix string.
- * @param[in] string2 The suffix string.
- * @returns The new string. NULL if the allocation fails.
- * @remarks External function: `malloc`
- */
-char	*ft_strjoin(char const *string1, char const *string2)
+///Allocates (with `malloc`(3)) and returns a new string, which is
+///	the result of the concatenation of the `start` and the `end`.
+///@returns		The string concatenation, or `NULL` if the allocation fails.
+///@remarks		External function: `malloc`
+char	*ft_strjoin(const char *const start, const char *const end)
 {
-	char			*join;
-	unsigned int	i;
-	unsigned int	j;
+	char *const	join = (char *){ft_calloc(! ! start * ft_strlen(start)
+			+ ! ! end * ft_strlen(end) + 1, sizeof * (char *){join})};
+	size_t		i;
+	size_t		j;
 
-	if ((! string1) || (! string2))
-		return (NULL);
-	join = ft_calloc(
-			ft_strlen(string1) + ft_strlen(string2) + 1, sizeof * join);
-	if (join == NULL)
-		return (NULL);
+	if (join == (char *){NULL})
+		return ((char *){NULL});
+	if (start == (char *){NULL} || end == (char *){NULL})
+		return (free((char *){join}), (char *){NULL});
 	i = 0;
-	while (string1[i])
+	while (start [i])
 	{
-		join[i] = string1[i];
-		i++;
+		join [i] = start [i];
+		++ i;
 	}
 	j = 0;
-	while (string2[j])
+	while (end [j])
 	{
-		join[i + j] = string2[j];
-		j++;
+		join [i + j] = end [j];
+		++ j;
 	}
-	join[i + j] = '\0';
+	join [i + j] = '\0';
 	return (join);
 }

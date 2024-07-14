@@ -6,80 +6,70 @@
 /*   By: lgasc <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 18:07:56 by lgasc             #+#    #+#             */
-/*   Updated: 2023/02/22 17:23:08 by lgasc            ###   ########.fr       */
+/*   Updated: 2024/07/15 00:57:55 by lgasc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+//#include "libft.h"
 
-static void	locate_trim(const char *const scruffy, const char *const blade,
-				unsigned int *const start, unsigned int *const end);
+static void	locate_trim(const char *scruffy, const char *blade,
+				size_t *start, size_t *end);
+static void	hydrate_trim(const char *scruffy,
+				size_t start, size_t end, char *trim);
 
-static void	hydrate_trim(const char *const scruffy,
-				unsigned int start, unsigned int end, char *const trim);
-
-/** Allocates (with malloc(3)) and returns a copy of `scruffy` with the
- * 	characters specified in `blade` removed from the beginning and the end of
- * 	the string.
- * 
- * @param[in] scruffy The string to be trimmed.
- * @param[in] blade The reference set of characters to trim.
- * 
- * @returns The trimmed string. NULL if the allocation fails.
- * 
- * @remarks External function: `malloc`
- */
-char	*ft_strtrim(char const *scruffy, char const *blade)
+///Allocates (with `malloc`(3)) and returns a copy of `scruffy` minus characters
+///	of the `blade` present at the beginning and the end of the string.
+///@param [in]	scruffy	The string to trim from.
+///@param [in]	blade	The reference set of characters to trim.
+///@returns		The string after trim. `NULL` if the allocation fails.
+///@remarks		External function: `malloc`
+char	*ft_strtrim(const char *const cruffy, const char *const blade)
 {
-	unsigned int	start;
-	unsigned int	end;
-	char			*trim;
+	size_t		start;
+	size_t		end;
+	char *const	trim
+		= (scruffy && blade && locate_trim(scruffy, blade, & start, & end),
+			(char *){ft_calloc(end - start + 2, sizeof * (char *){trim})});
 
+	if (trim == (char *){NULL})
+		return ((char *){NULL});
 	if (! scruffy)
-		return (NULL);
+		return (free((char *){trim}), (char *){NULL});
 	if (! blade)
-		return (ft_strdup(scruffy));
-	locate_trim(scruffy, blade, &start, &end);
-	trim = ft_calloc(2 + end - start, sizeof * trim);
-	if (trim == NULL)
-		return (NULL);
+		return (free((char *){trim}), ft_strdup(scruffy));
 	hydrate_trim(scruffy, start, end, trim);
 	return (trim);
 }
 
-/**
- * @param[in] scruffy
- * @param[in] blade
- * @param[out] start
- * @param[out] end
- */
-static void	locate_trim(const char *const scruffy, const char *const blade,
-				unsigned int *const start, unsigned int *const end)
+///@param [in]	scruffy
+///@param [in]	blade
+///@param [out]	start
+///@param [out]	end
+static void	locate_trim(const char *const scruffy,
+	const char *const blade, size_t *const start, size_t *const end)
 {
 	*start = 0;
-	while (ft_strchr(blade, scruffy[*start]) && *start <= ft_strlen(scruffy))
-		(*start)++;
+	while (ft_strchr(blade, scruffy [*start]) && *start <= ft_strlen(scruffy))
+		++ (*start);
 	*end = ft_strlen(scruffy);
-	while (*start < *end && ft_strchr(blade, scruffy[*end]))
-		(*end)--;
+	while (*start < *end && ft_strchr(blade, scruffy [*end]))
+		-- (*end);
 }
 
-/**
- * @param[in] scruffy
- * @param[in] start
- * @param[in] end
- * @param[out] trim
- */
-static void	hydrate_trim(const char *const scruffy, const unsigned int start,
-				const unsigned int end, char *const trim)
+///@param [in]	scruffy
+///@param [in]	start
+///@param [in]	end
+///@param [out]	trim
+static void	hydrate_trim(const char *const scruffy,
+	const size_t start, const size_t end, char *const trim)
 {
-	unsigned int	i;
+	size_t	i;
 
 	i = 0;
 	while (start + i <= end)
 	{
-		trim[i] = scruffy[start + i];
-		i++;
+		trim [i] = scruffy [start + i];
+		++ i;
 	}
-	trim[i] = '\0';
+	trim [i] = '\0';
 }

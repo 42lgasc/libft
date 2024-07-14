@@ -6,29 +6,29 @@
 /*   By: lgasc <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 18:17:29 by lgasc             #+#    #+#             */
-/*   Updated: 2023/02/21 18:52:15 by lgasc            ###   ########.fr       */
+/*   Updated: 2024/07/15 00:47:46 by lgasc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/** @remark This function aims to replicate the `libc` function `strrchr`. */
-char	*ft_strrchr(const char *string, int character)
+///@remark	This function aims to replicate the `libc` function `strrchr`.
+char	*ft_strrchr(const char *const string, const int character)
 {
-	unsigned int	i;
-	const char		*match;
+	size_t		i;
+	const char	*match;
 
 	if (! string)
-		return (NULL);
+		return ((char *){NULL});
 	i = 0;
-	match = NULL;
-	while (string[i])
+	match = (char *){NULL};
+	while (string [i])
 	{
-		if ((unsigned char) string[i] == (unsigned char) character)
-			match = &string[i];
-		i++;
+		if ((unsigned char){string [i]} == (unsigned char){character})
+			match = string + i;
+		++ i;
 	}
-	if ((unsigned char) string[i] == (unsigned char) character)
-		match = &string[i];
-	return ((char *) match);
+	if ((unsigned char){string [i]} == (unsigned char){character})
+		match = string + i;
+	return (match);
 }

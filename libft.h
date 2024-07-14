@@ -6,7 +6,7 @@
 /*   By: lgasc <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 15:26:44 by lgasc             #+#    #+#             */
-/*   Updated: 2023/02/16 17:24:29 by lgasc            ###   ########.fr       */
+/*   Updated: 2024/07/12 20:56:11 by lgasc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,16 @@ void	ft_putstr_fd(char *string, int file_descriptor);
 void	ft_putendl_fd(char *string, int file_descriptor);
 void	ft_putnbr_fd(int integer, int file_descriptor);
 
+// ///
+// My own functions
+
+size_t	ft_strspn(const char *s, const char *accept);
+//!Alias "character run", "span"
+size_t	ft_span(const char *s, const char *characters);
+size_t	ft_strcspn(const char *s, const char *reject);
+//!Alias "complementary span"
+size_t	ft_find(const char *s, const char *characters);
+
 /*~~ ~ -  BONUS - ~ ~~*/
 
 typedef struct s_list
@@ -71,8 +81,7 @@ t_list	*ft_lstlast(t_list *list);
 void	ft_lstadd_back(t_list **list, t_list *new);
 void	ft_lstdelone(t_list *node, void (*deleter)(void *));
 void	ft_lstclear(t_list **node, void (*deleter)(void *));
-void	ft_lstiter(t_list *list, void (*function)(void *));
-t_list	*ft_lstmap(
-			t_list *list, void *(*function)(void *), void (*deleter)(void *));
+void	ft_lstiter(t_list *list, void (*action)(void *));
+t_list	*ft_lstmap(t_list *list, void*(*action)(void*), void(*deleter)(void*));
 
 #endif
