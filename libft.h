@@ -6,7 +6,7 @@
 /*   By: lgasc <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 15:26:44 by lgasc             #+#    #+#             */
-/*   Updated: 2024/07/12 20:56:11 by lgasc            ###   ########.fr       */
+/*   Updated: 2024/07/15 16:06:04 by lgasc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,10 @@ size_t	ft_strcspn(const char *s, const char *reject);
 //!Alias "complementary span"
 size_t	ft_find(const char *s, const char *characters);
 
-/*~~ ~ -  BONUS - ~ ~~*/
+void	ft_noop(void);
+
+// ///
+// Bonus
 
 typedef struct s_list
 {
