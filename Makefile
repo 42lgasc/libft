@@ -6,7 +6,7 @@
 #    By: lgasc <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/09 17:30:49 by lgasc             #+#    #+#              #
-#    Updated: 2023/02/23 12:33:21 by lgasc            ###   ########.fr        #
+#    Updated: 2024/07/16 22:48:52 by lgasc            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,21 +25,21 @@ CFLAGS += -Wall -Wextra -Werror
 SOURCES = \
 	ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c \
 	ft_strlen.c \
-	ft_memset.c ft_bzero.c ft_memcpy.c ft_memmove.c \
+	ft_memset.c ft_bzero.c ft_memcpy.c memmove.c \
 	ft_strlcpy.c ft_strlcat.c \
 	ft_toupper.c ft_tolower.c \
-	ft_strchr.c ft_strrchr.c ft_strncmp.c \
-	ft_memchr.c ft_memcmp.c \
+	ft_strchr.c ft_strrchr.c strncmp.c \
+	ft_memchr.c memcmp.c \
 	ft_strnstr.c \
 	ft_atoi.c \
-	\
-	ft_calloc.c \
-	ft_strdup.c \
+	calloc.c ft_strdup.c \
 	\
 	ft_substr.c ft_strjoin.c ft_strtrim.c ft_split.c \
 	ft_itoa.c \
 	ft_strmapi.c ft_striteri.c \
-	ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c
+	put.c \
+	\
+	span.c noop.c
 
 OBJECTS = $(SOURCES:.c=.o)
 

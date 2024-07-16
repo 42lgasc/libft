@@ -6,7 +6,7 @@
 /*   By: lgasc <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 17:09:58 by lgasc             #+#    #+#             */
-/*   Updated: 2024/07/15 00:26:46 by lgasc            ###   ########.fr       */
+/*   Updated: 2024/07/16 19:03:13 by lgasc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	*ft_calloc(const size_t member_amount, const size_t member_size)
 	i = 0;
 	while (i < member_amount * member_size)
 	{
-		(char *const){array} [i] = 0;
+		(char *const){array} [i] = '\0';
 		++ i;
 	}
 	return (array);

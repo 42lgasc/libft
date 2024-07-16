@@ -1,25 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lgasc <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/09 13:41:59 by lgasc             #+#    #+#             */
-/*   Updated: 2023/02/21 18:22:20 by lgasc            ###   ########.fr       */
+/*   Created: 2023/02/03 17:13:45 by lgasc             #+#    #+#             */
+/*   Updated: 2024/07/15 21:28:31 by lgasc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/** Outputs the `string` to the given `file_descriptor`.
- * @param[in] string The string to output.
- * @param[in] file_descriptor The file descriptor on which to write.
- * @remarks External function: `write`
- */
-void	ft_putstr_fd(char *string, int file_descriptor)
+///@remark This function aims to replicate the `libc` function `strncmp`.
+int	ft_strncmp(
+	const char *const subject, const char *const reference, const size_t n)
 {
-	if (! string)
-		return ;
-	write(file_descriptor, string, ft_strlen(string));
+	size_t	i;
+
+	i = 0;
+	while (i < n)
+	{
+		if (subject [i] != reference [i])
+			return (
+				(unsigned char*){subject}[i] - (unsigned char*){reference}[i]);
+		if (subject [i] == '\0')
+			return (0);
+		++ i;
+	}
+	return (0);
 }
