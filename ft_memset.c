@@ -6,21 +6,88 @@
 /*   By: lgasc <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 16:37:56 by lgasc             #+#    #+#             */
-/*   Updated: 2023/02/21 17:22:51 by lgasc            ###   ########.fr       */
+/*   Updated: 2024/07/17 22:37:39 by lgasc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/** @remark This function aims to replicate the `libc` function `memset`. */
-void	*ft_memset(void *s, int c, size_t n)
+///@remark This function aims to replicate the `libc` function `memset`.
+///
+///	man 3posix memset
+///># MEMSET(3POSIX)           POSIX Programmer's Manual          MEMSET(3POSIX)
+///>
+///>## PROLOG
+///>   This  manual  page is part of the POSIX Programmer's Manual.  The Linux
+///>   implementation of this interface may differ (consult the  corresponding
+///>   Linux  manual page for details of Linux behavior), or the interface may
+///>   not be implemented on Linux.
+///>
+///>## NAME
+///>   memset — set bytes in memory
+///>
+///>## SYNOPSIS
+///>   `#include <string.h>`
+///>   
+///>   `void *memset(void *`_`s`_`, int `_`c`_`, size_t `_`n`_`);
+///>
+///>## DESCRIPTION
+///>   The functionality described on this reference page is aligned with  the
+///>   ISO C  standard.  Any  conflict between the requirements described here
+///>   and the ISO C standard is unintentional. This  volume  of  POSIX.1‐2017
+///>   defers to the ISO C standard.
+///>
+///>   The   _`memset`_`()`   function  shall  copy  _`c`_  (converted  to  an
+///>   **`unsigned char`**) into each of the first _`n`_ bytes of  the  object
+///>   pointed to by _`s`_.
+///>
+///>## RETURN VALUE
+///>   The  _`memset`_`()`  function  shall  return  _`s`_; no return value is
+///>   reserved to indicate an error.
+///>
+///>## ERRORS
+///>   No errors are defined.
+///>
+///>   _The following sections are informative._
+///>
+///>## EXAMPLES
+///>   None.
+///>
+///>## APPLICATION USAGE
+///>   None.
+///>
+///>## RATIONALE
+///>   None.
+///>
+///>## FUTURE DIRECTIONS
+///>   None.
+///>
+///>## SEE ALSO
+///>   The Base Definitions volume of POSIX.1‐2017, _**`<string.h>`**_
+///>
+///>## COPYRIGHT
+///>   Portions  of  this text are reprinted and reproduced in electronic form
+///>   from IEEE Std 1003.1-2017, Standard for Information Technology --  Por‐
+///>   table  Operating System Interface (POSIX), The Open Group Base Specifi‐
+///>   cations Issue 7, 2018 Edition, Copyright (C) 2018 by the  Institute  of
+///>   Electrical  and  Electronics Engineers, Inc and The Open Group.  In the
+///>   event of any discrepancy between this version and the original IEEE and
+///>   The  Open Group Standard, the original IEEE and The Open Group Standard
+///>   is the referee document. The original Standard can be  obtained  online
+///>   at http://www.opengroup.org/unix/online.html .
+///>
+///>   Any  typographical  or  formatting  errors that appear in this page are
+///>   most likely to have been introduced during the conversion of the source
+///>   files  to  man page format. To report such errors, see https://www.ker‐
+///>   nel.org/doc/man-pages/reporting_bugs.html .
+void	*ft_memset(void *const s, const unsigned char c, const size_t n)
 {
-	unsigned int	i;
+	size_t	i;
 
 	if (! s)
 		return (s);
 	i = 0;
 	while (i < n)
-		((char *const) s)[i++] = c;
+		((char *const) s)[i ++] = c;
 	return (s);
 }

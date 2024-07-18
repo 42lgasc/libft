@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*   memcmp.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lgasc <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 12:57:22 by lgasc             #+#    #+#             */
-/*   Updated: 2024/07/15 21:28:53 by lgasc            ###   ########.fr       */
+/*   Updated: 2024/07/18 00:30:07 by lgasc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 ///@remark	This function aims to replicate the `libc` function `memcmp`.
 ///@remark	The **behavior** of this function is, when called with
 ///	at least one `NULL` pointer, **undefined**!
-__attribute__	((nonnull))
-int	ft_memcmp(
-	const void *const subject, const void *const reference, const size_t n)
+__attribute__	((nonnull,	warn_unused_result))
+int	ft_memcmp(const unsigned char *const subject,
+	const unsigned char *const reference, const size_t n)
 {
 	size_t	i;
 
@@ -26,9 +26,8 @@ int	ft_memcmp(
 	i = 0;
 	while (i < n)
 	{
-		if ((unsigned char *){subject} [i] != (unsigned char *){reference} [i])
-			return (
-				(unsigned char*){subject}[i] - (unsigned char*){reference}[i]);
+		if (subject [i] != reference [i])
+			return (subject [i] - reference [i]);
 		++ i;
 	}
 	return (0);

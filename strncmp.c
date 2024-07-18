@@ -1,20 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   strncmp.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lgasc <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 17:13:45 by lgasc             #+#    #+#             */
-/*   Updated: 2024/07/15 21:28:31 by lgasc            ###   ########.fr       */
+/*   Updated: 2024/07/18 00:19:59 by lgasc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 ///@remark This function aims to replicate the `libc` function `strncmp`.
-int	ft_strncmp(
-	const char *const subject, const char *const reference, const size_t n)
+__attribute__	((nonnull,	warn_unused_result))
+int	ft_strncmp(const unsigned char *const subject,
+	const unsigned char *const reference, const size_t n)
 {
 	size_t	i;
 
@@ -22,8 +23,7 @@ int	ft_strncmp(
 	while (i < n)
 	{
 		if (subject [i] != reference [i])
-			return (
-				(unsigned char*){subject}[i] - (unsigned char*){reference}[i]);
+			return (subject [i] - reference [i]);
 		if (subject [i] == '\0')
 			return (0);
 		++ i;

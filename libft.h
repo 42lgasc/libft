@@ -6,7 +6,7 @@
 /*   By: lgasc <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 15:26:44 by lgasc             #+#    #+#             */
-/*   Updated: 2024/07/16 15:32:14 by lgasc            ###   ########.fr       */
+/*   Updated: 2024/07/18 01:21:32 by lgasc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 
 # include <errno.h>
 # include <limits.h>
+# include <stdbool.h>
 # include <stddef.h>
 # include <stdlib.h>
-# include <unistd.h>
 
 bool	ft_isalpha(char c);
 bool	ft_isdigit(char c);
@@ -25,7 +25,7 @@ bool	ft_isalnum(char c);
 bool	ft_isascii(char c);
 bool	ft_isprint(char c);
 size_t	ft_strlen(const char *s);
-void	*ft_memset(void *s, char c, size_t n);
+void	*ft_memset(void *s, unsigned char c, size_t n);
 void	ft_bzero(void *s, size_t n);
 void	*ft_memcpy(void *destination, const void *source, size_t n);
 void	*ft_memmove(void *destination, const void *source, size_t n);
@@ -35,9 +35,11 @@ char	ft_toupper(char c);
 char	ft_tolower(char c);
 char	*ft_strchr(const char *s, char c);
 char	*ft_strrchr(const char *s, char c);
-int		ft_strncmp(const char *subject, const char *reference, size_t n);
-void	*ft_memchr(const void *s, char c, size_t n);
-int		ft_memcmp(const void *subject, const void *reference, size_t n);
+int		ft_strncmp(const unsigned char *subject,
+			const unsigned char *reference, size_t n);
+void	*ft_memchr(const void *s, unsigned char c, size_t n);
+int		ft_memcmp(const unsigned char *subject,
+			const unsigned char *reference, size_t n);
 char	*ft_strnstr(const char *big, const char *little, size_t length);
 int		ft_atoi(const char *ascii);
 
@@ -66,6 +68,8 @@ size_t	ft_span(const char *s, const char *set);
 size_t	ft_strcspn(const char *s, const char *reject);
 //!Alias "complementary span"
 size_t	ft_find(const char *s, const char *any);
+size_t	ft_rspan(const char *s, const char *set);
+size_t	ft_rfind(const char *s, const char *any);
 
 void	ft_noop(void);
 
