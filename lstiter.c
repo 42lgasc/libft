@@ -1,21 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lgasc <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/01 16:44:15 by lgasc             #+#    #+#             */
-/*   Updated: 2023/02/21 17:23:44 by lgasc            ###   ########.fr       */
+/*   Created: 2023/02/15 13:44:41 by lgasc             #+#    #+#             */
+/*   Updated: 2024/07/25 16:02:11 by lgasc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/** @remark This function aims to replicate the `libc` function `bzero`. */
-void	ft_bzero(void *s, size_t n)
+///Iterates the `list` and applies the `function` on the content of each node.
+///@param	list		The address of a node.
+///@param	function	The address of the function
+///						used to iterate on the `list`.
+void	ft_lstiter(t_node *const list, void (*action)(const void *))
 {
-	if (! s)
-		return ;
-	ft_memset(s, '\0', n);
+	t_node	*node;
+
+	node = list;
+	while (node != (t_node *){NULL})
+	{
+		function(node->content);
+		node = node->next;
+	}
 }

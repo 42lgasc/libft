@@ -6,7 +6,7 @@
 /*   By: lgasc <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 17:57:21 by lgasc             #+#    #+#             */
-/*   Updated: 2024/07/18 00:15:09 by lgasc            ###   ########.fr       */
+/*   Updated: 2024/07/25 16:59:11 by lgasc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,8 +98,6 @@ char	*ft_strchr(const char *const string, const char c)
 {
 	size_t	i;
 
-	if (! string)
-		return (NULL);
 	i = 0;
 	while (string [i])
 	{

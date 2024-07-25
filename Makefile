@@ -6,7 +6,7 @@
 #    By: lgasc <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/09 17:30:49 by lgasc             #+#    #+#              #
-#    Updated: 2024/07/16 22:48:52 by lgasc            ###   ########.fr        #
+#    Updated: 2024/07/25 19:31:16 by lgasc            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,25 +18,39 @@ NAME = libft.a
 
 # Special variables
 #CC = gcc
-CFLAGS += -Wall -Wextra -Werror
+CFLAGS += -Wall -Wmissing-noreturn -Werror		\
+	-Wnull-dereference -Wstrict-overflow=5 -Wpedantic	\
+	-Wattributes -Wmissing-format-attribute -Wnonnull	\
+	-Wextra
+
+ifeq ($(CC), gcc)
+CFLAGS			+= -Wduplicated-cond -Wsuggest-attribute=const	\
+	-Wsuggest-attribute=cold -Wsuggest-attribute=pure	\
+	-Wduplicated-branches -Wsuggest-attribute=format	\
+	-Wattribute-alias=2 -Wsuggest-attribute=noreturn	\
+	-Wsuggest-attribute=malloc -Wstringop-overflow=4
+
+else ifeq ($(CC), clang)
+CFLAGS			+= -Wproperty-attribute-mismatch
+endif
 
 #INCLUDES = libft.h
 
 SOURCES = \
-	ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c \
-	ft_strlen.c \
-	ft_memset.c ft_bzero.c ft_memcpy.c memmove.c \
-	ft_strlcpy.c ft_strlcat.c \
-	ft_toupper.c ft_tolower.c \
-	ft_strchr.c ft_strrchr.c strncmp.c \
-	ft_memchr.c memcmp.c \
-	ft_strnstr.c \
-	ft_atoi.c \
-	calloc.c ft_strdup.c \
+	is.c \
+	strlen.c \
+	memset.c bzero.c memcpy.c memmove.c \
+	strlcpy.c strlcat.c \
+	toupper.c tolower.c \
+	strchr.c strrchr.c strncmp.c \
+	memchr.c memcmp.c \
+	strnstr.c \
+	atoi.c \
+	calloc.c strdup.c \
 	\
-	ft_substr.c ft_strjoin.c ft_strtrim.c ft_split.c \
-	ft_itoa.c \
-	ft_strmapi.c ft_striteri.c \
+	substr.c strjoin.c strtrim.c split.c \
+	itoa.c \
+	strmapi.c striteri.c \
 	put.c \
 	\
 	span.c noop.c
@@ -69,9 +83,8 @@ re: fclean all ;
 # #### ### ## #  === == =  ~~ ~  -   Bonus!   -  ~ ~~  = == ===  # ## ### #### #
 
 BONUS_SOURCES = \
-	ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c \
-	ft_lstadd_back.c ft_lstdelone.c ft_lstclear.c \
-	ft_lstiter.c ft_lstmap.c
+	lstnew.c lstadd_front.c lstsize.c lstlast.c lstadd_back.c lstdelone.c \
+	lstclear.c lstiter.c lstmap.c
 
 BONUS_OBJECTS = $(BONUS_SOURCES:.c=.o)
 

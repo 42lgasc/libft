@@ -1,34 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lgasc <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/02 18:17:29 by lgasc             #+#    #+#             */
-/*   Updated: 2024/07/18 00:15:35 by lgasc            ###   ########.fr       */
+/*   Created: 2023/02/14 14:28:09 by lgasc             #+#    #+#             */
+/*   Updated: 2024/07/25 13:07:14 by lgasc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-///@remark	This function aims to replicate the `libc` function `strrchr`.
-char	*ft_strrchr(const char *const string, const char c)
+///Counts the number of nodes in a list.
+///@param	list	The beginning of the list.
+///@return	The length of the list.
+__attribute__	((warn_unused_result))
+size_t	ft_lstsize(const t_node *const list)
 {
-	size_t		i;
-	const char	*match;
+	const t_node	*next_link;
+	size_t			size;
 
-	if (! string)
-		return ((char *){NULL});
-	i = 0;
-	match = (char *){NULL};
-	while (string [i])
+	next_link = list;
+	size = 0;
+	while (next_link)
 	{
-		if (string [i] == c)
-			match = string + i;
-		++ i;
+		++ size;
+		next_link = next_link->next;
 	}
-	if (c == '\0')
-		match = string + i;
-	return ((char *)(const char *){match});
+	return (size);
 }

@@ -6,11 +6,18 @@
 /*   By: lgasc <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/15 15:55:21 by lgasc             #+#    #+#             */
-/*   Updated: 2024/07/15 15:56:05 by lgasc            ###   ########.fr       */
+/*   Updated: 2024/07/25 16:08:59 by lgasc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 ///Much wow.
 void	ft_noop(void)
 {
+}
+
+void	ft_vnoop(const void *const x)
+{
+	if (x)
+		return ;
+	return ;
 }

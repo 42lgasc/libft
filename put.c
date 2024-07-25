@@ -6,7 +6,7 @@
 /*   By: lgasc <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/15 19:20:29 by lgasc             #+#    #+#             */
-/*   Updated: 2024/07/18 03:48:24 by lgasc            ###   ########.fr       */
+/*   Updated: 2024/07/25 18:02:11 by lgasc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ static size_t	power(size_t base, size_t exponent);
 ///@param[in]	character		The character to output.
 ///@param[in]	file_descriptor	The file descriptor on which to write.
 ///@remarks		External function: `write`
+
 //__attribute__	((fd_arg))
 void	ft_putchar_fd(const char character, const int file_descriptor)
 {
@@ -30,11 +31,10 @@ void	ft_putchar_fd(const char character, const int file_descriptor)
 ///@param[in]	string			The string to output.
 ///@param[in]	file_descriptor	The file descriptor on which to write.
 ///@remarks		External function: `write`
+
 //__attribute__	((fd_arg))
 void	ft_putstr_fd(const char *const string, const int file_descriptor)
 {
-	if (! string)
-		return ;
 	write(file_descriptor, string, ft_strlen(string));
 }
 
@@ -42,6 +42,7 @@ void	ft_putstr_fd(const char *const string, const int file_descriptor)
 ///@param[in]	string			The string to output.
 ///@param[in]	file_descriptor	The file descriptor on which to write.
 ///@remarks		External function: `write`
+
 //__attribute__	((fd_arg))
 void	ft_putendl_fd(const char *const string, const int file_descriptor)
 {
@@ -53,6 +54,7 @@ void	ft_putendl_fd(const char *const string, const int file_descriptor)
 ///@param[in]	integer			The integer to output.
 ///@param[in]	file_descriptor	The file descriptor on which to write.
 ///@remarks		External function: `write`
+
 //__attribute__ ((fd_arg	(2)))
 void	ft_putnbr_fd(const int integer, const int file_descriptor)
 {

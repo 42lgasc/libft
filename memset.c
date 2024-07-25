@@ -6,7 +6,7 @@
 /*   By: lgasc <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 16:37:56 by lgasc             #+#    #+#             */
-/*   Updated: 2024/07/17 22:37:39 by lgasc            ###   ########.fr       */
+/*   Updated: 2024/07/25 16:52:16 by lgasc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,10 +84,8 @@ void	*ft_memset(void *const s, const unsigned char c, const size_t n)
 {
 	size_t	i;
 
-	if (! s)
-		return (s);
 	i = 0;
 	while (i < n)
-		((char *const) s)[i ++] = c;
+		((char *const){s})[i ++] = c;
 	return (s);
 }

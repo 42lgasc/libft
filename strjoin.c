@@ -6,27 +6,25 @@
 /*   By: lgasc <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 16:53:31 by lgasc             #+#    #+#             */
-/*   Updated: 2024/07/15 00:39:44 by lgasc            ###   ########.fr       */
+/*   Updated: 2024/07/25 17:50:45 by lgasc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-///Allocates (with `malloc`(3)) and returns a new string, which is
-///	the result of the concatenation of the `start` and the `end`.
+///Allocates (with `malloc`(3)) and returns a new string, which is the result of
+///	the concatenation of the `start` and the `end`.
 ///@returns		The string concatenation, or `NULL` if the allocation fails.
 ///@remarks		External function: `malloc`
 char	*ft_strjoin(const char *const start, const char *const end)
 {
-	char *const	join = (char *){ft_calloc(! ! start * ft_strlen(start)
-			+ ! ! end * ft_strlen(end) + 1, sizeof * (char *){join})};
+	char *const	join = (char *)
+	{ft_calloc(ft_strlen(start) + ft_strlen(end) + 1, sizeof * (char *){join})};
 	size_t		i;
 	size_t		j;
 
 	if (join == (char *){NULL})
 		return ((char *){NULL});
-	if (start == (char *){NULL} || end == (char *){NULL})
-		return (free((char *){join}), (char *){NULL});
 	i = 0;
 	while (start [i])
 	{

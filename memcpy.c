@@ -1,33 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lgasc <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/04 18:00:03 by lgasc             #+#    #+#             */
-/*   Updated: 2023/02/21 18:27:47 by lgasc            ###   ########.fr       */
+/*   Created: 2023/02/01 16:50:02 by lgasc             #+#    #+#             */
+/*   Updated: 2024/07/25 16:55:59 by lgasc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strdup(const char *original)
+///@remark This function aims to replicate the `libc` function `memcpy`.
+void	*ft_memcpy(
+	void *const destination, const void *const source, const size_t n)
 {
-	char			*duplicant;
-	unsigned int	i;
+	size_t	i;
 
-	if (! original)
-		return (NULL);
-	duplicant = ft_calloc(ft_strlen(original) + 1, sizeof * duplicant);
-	if (! duplicant)
-		return (NULL);
 	i = 0;
-	while (original[i])
+	while (i < n)
 	{
-		duplicant[i] = original[i];
-		i++;
+		(char *const){destination}[i] = (const char *const){source}[i];
+		++ i;
 	}
-	duplicant[i] = '\0';
-	return (duplicant);
+	return (destination);
 }

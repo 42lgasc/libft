@@ -6,7 +6,7 @@
 /*   By: lgasc <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 18:07:56 by lgasc             #+#    #+#             */
-/*   Updated: 2024/07/18 03:49:01 by lgasc            ###   ########.fr       */
+/*   Updated: 2024/07/25 17:24:19 by lgasc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,6 @@ char	*ft_strtrim(const char *const scruffy, const char *const blade)
 	const char	*end;
 	char		*trim;
 
-	if (! scruffy)
-		return ((char *){NULL});
-	if (! blade)
-		return (ft_strdup(scruffy));
 	locate_trim(scruffy, blade, & start, & end);
 	if (*start == '\0')
 		return (ft_strdup(""));

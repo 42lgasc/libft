@@ -6,13 +6,13 @@
 /*   By: lgasc <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 17:55:31 by lgasc             #+#    #+#             */
-/*   Updated: 2024/07/18 00:40:31 by lgasc            ###   ########.fr       */
+/*   Updated: 2024/07/25 17:49:53 by lgasc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-///Allocates (with `malloc`(3)) and returns a substring from `superstring`.
+///Allocates  (with  `malloc`(3))  and  returns  a substring from `superstring`.
 /// The substring begins at index `start` and is of maximum size `length`.
 ///@param[in]	superstring	The string from which to create the substring.
 ///@param[in]	start		The start index of the substring in `superstring`.
@@ -26,8 +26,8 @@ char	*ft_substr(
 	char	*substring;
 	size_t	i;
 
-	if (superstring == (char *){NULL} || start > ft_strlen(superstring))
-		return (ft_strdup(""));
+	if (start > ft_strlen(superstring))
+		return ((char *){NULL});
 	if (ft_strlen(superstring) < start + length)
 		substring
 			= ft_calloc(ft_strlen(superstring) + 1 - start, sizeof * substring);

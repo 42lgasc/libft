@@ -1,19 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isprint.c                                       :+:      :+:    :+:   */
+/*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lgasc <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/01 16:28:46 by lgasc             #+#    #+#             */
-/*   Updated: 2023/02/12 02:38:21 by lgasc            ###   ########.fr       */
+/*   Created: 2023/02/14 15:52:21 by lgasc             #+#    #+#             */
+/*   Updated: 2024/07/25 16:05:11 by lgasc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/** @see https://cplusplus.com/reference/cctype/
- * @remark This function aims to replicate the `libc` function `isprint`.
- */
-int	ft_isprint(int character)
+#include "libft.h"
+
+////Counts the number of nodes in a list.
+///@param	list	The beginning of the list.
+///@return	Last node of the list.
+t_node	*ft_lstlast(t_node *const list)
 {
-	return (' ' <= character && character <= '~');
+	t_node	*link;
+
+	if (! list)
+		return ((t_node *){NULL});
+	link = list;
+	while (link->next)
+		link = link->next;
+	return (link);
 }

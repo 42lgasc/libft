@@ -1,29 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstiter.c                                       :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lgasc <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/15 13:44:41 by lgasc             #+#    #+#             */
-/*   Updated: 2023/02/15 14:02:31 by lgasc            ###   ########.fr       */
+/*   Created: 2023/02/01 16:31:14 by lgasc             #+#    #+#             */
+/*   Updated: 2024/07/25 16:51:37 by lgasc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/** Iterates the `list` and applies the `function` on the content of each node.
- * @param list The address to a pointer to a node.
- * @param function The address of the function used to iterate on the `list`.
- */
-void	ft_lstiter(t_list *list, void (*function)(void *))
+///@remark This function aims to replicate the `libc` function `strlen`.
+size_t	ft_strlen(const char *const string)
 {
-	struct s_list	*node;
+	size_t	length;
 
-	node = list;
-	while (node)
-	{
-		function(node->content);
-		node = node->next;
-	}
+	length = 0;
+	while (string [length])
+		++ length;
+	return (length);
 }

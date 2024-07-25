@@ -6,7 +6,7 @@
 /*   By: lgasc <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 12:08:15 by lgasc             #+#    #+#             */
-/*   Updated: 2024/07/18 01:42:39 by lgasc            ###   ########.fr       */
+/*   Updated: 2024/07/25 17:58:20 by lgasc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,6 @@ char	*ft_strmapi(char const *source, char (*action)(size_t, char))
 	char	*map;
 	size_t	i;
 
-	if (! source || ! action)
-		return ((char *){NULL});
 	map = (char *){ft_calloc(ft_strlen(source) + 1, sizeof * (char *){map})};
 	if (! map)
 		return ((char *){NULL});

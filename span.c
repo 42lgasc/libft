@@ -6,7 +6,7 @@
 /*   By: lgasc <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 19:42:26 by lgasc             #+#    #+#             */
-/*   Updated: 2024/07/18 03:46:51 by lgasc            ###   ########.fr       */
+/*   Updated: 2024/07/25 18:25:48 by lgasc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@
 ///>
 ///>## Errors
 ///>No errors are defined.
-__attribute__	((nonnull,	warn_unused_result))
+__attribute__	((nonnull,	pure,	warn_unused_result))
 size_t	ft_strspn(const char *const s, const char *const set)
 {
 	size_t	i;
@@ -44,7 +44,7 @@ size_t	ft_strspn(const char *const s, const char *const set)
 }
 
 size_t	ft_span(const char *const s, const char *const characters)
-		__attribute__	((alias	("ft_strspn"),	nonnull, warn_unused_result));
+		__attribute__ ((alias("ft_strspn"), nonnull, pure, warn_unused_result));
 
 ///	man 3 strspn
 ///>## Description
@@ -66,7 +66,7 @@ size_t	ft_span(const char *const s, const char *const characters)
 ///>	computed segment of the string pointed to by _`s1`_;
 ///>	no return value is reserved to indicate an error.
 // `ft_strchr` considers `'\0'` to be part of string
-__attribute__	((nonnull,	warn_unused_result))
+__attribute__	((nonnull,	pure,	warn_unused_result))
 size_t	ft_strcspn(const char *const s, const char *const any)
 {
 	size_t	i;
@@ -78,9 +78,10 @@ size_t	ft_strcspn(const char *const s, const char *const any)
 }
 
 size_t	ft_find(const char *const s, const char *const characters)
-		__attribute__	((alias	("ft_strcspn"),	nonnull, warn_unused_result));
+		__attribute__	((
+				alias	("ft_strcspn"),	nonnull,	pure, warn_unused_result));
 
-__attribute__	((nonnull,	warn_unused_result))
+__attribute__	((nonnull,	pure,	warn_unused_result))
 size_t	ft_rspan(const char *const s, const char *const set)
 {
 	const size_t	length = ft_strlen(s);
@@ -92,7 +93,7 @@ size_t	ft_rspan(const char *const s, const char *const set)
 	return (i);
 }
 
-__attribute__	((nonnull,	warn_unused_result))
+__attribute__	((nonnull,	pure,	warn_unused_result))
 size_t	ft_rfind(const char *const s, const char *any)
 {
 	const size_t	length = ft_strlen(s);
